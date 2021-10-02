@@ -190,12 +190,3 @@ body {
 .hoversquare[--s8]:hover > .hoversquare[--s9] {
   display: block;
 }
-
-
-
-/* SCREENS */
-#screen2 {
-  position: absolute;
-  top:100vh;
-  left: 0;
-}
