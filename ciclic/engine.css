@@ -3,29 +3,93 @@ html,body {
     padding: 0;
 }
 
-body:focus-within .page-click {
-    top: -100%;
-}
-
-.page-click {
-    font-weight: 600;
-    font-family: sans-serif;
-    background: white;
-    border: none;
-    cursor: pointer;
-
+div#back {
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
+    background:
+        linear-gradient(120deg, #00000011, #00000077),
+        linear-gradient(180deg, #00000011, #00000077),
+        radial-gradient(#00000011, #00000055),
+        linear-gradient(180deg, transparent calc(50% + 70px), #00000044 calc(50% + 70px), #00000088);
+    cursor: pointer;
+}
+
+div#square {
+    width: 70px;
+    height: 70px;
+    background: white;
+    top: calc(50% - 1px);
+    left: calc(50% - 35px);
+    position: fixed;
+
+}
+
+div#clickable {
+    width: 100%;
+    height: 100%;
+}
+
+div#clickable:focus-within .page-click {
+    top: -100%;
+    cursor: pointer;
+}
+
+div#clickable .page-click {
+    font-weight: 600;
+    font-family: sans-serif;
+    background: #ff000022;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 100px;
+    position: fixed;
+    width: inherit;
+    height: inherit;
     top: -100%;
     font-size: 5rem;
 }
-.page-click:first-child {
-    top: 0;
+div#clickable .page-click:first-child {
+    top: inherit;
+    animation: none;
 }
-.page-click:focus + .page-click {
-    top: 0;
+div#clickable:focus-within .page-click:first-child {
+    top: -100%;
 }
-.page-click:focus:last-child {
+div#clickable .page-click:focus + .page-click {
+    top: inherit;
+    animation: linear 2s spikeMove;
+}
+div#clickable .page-click:focus:last-child {
     display: none;
+}
+
+div#clickable .page-click:focus ~ div#square {
+    animation: 600ms ease-in-out squareJump, 600ms linear squareSpin;
+}
+
+
+
+/* ANIMATIONS */
+@keyframes squareJump {
+    0% { top: calc(50% - 1px); }
+    50% { top: calc(50% - 151px); }
+    100% { top: calc(50% - 1px); }
+}
+
+@keyframes squareSpin {
+    10% { transform: rotateZ(0deg); }
+    90% { transform: rotateZ(270deg); }
+    100% { transform: rotateZ(270deg); }
+}
+
+@keyframes spikeMove {
+    from {
+        background: #00ff0022;
+        left: 100%;
+    }
+    to {
+        background: #0000ff22;
+        left: -100%;
+    }
 }
