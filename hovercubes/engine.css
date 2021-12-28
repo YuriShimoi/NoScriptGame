@@ -1,0 +1,192 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body {
+  display: flex;
+  background: #222;
+  width: 100vw;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#reset-btn {
+  width: 8vw;
+  min-width: 8vw;
+  margin: 1vw;
+  height: 5vw;
+  font-size: 1.2rem;
+}
+#reset-btn:active:focus + .cover {
+  margin-left: 100%;
+  transition: all 0s;
+}
+.cover {
+  position: absolute;
+  background: #333;
+  width: calc(100% - 10vw);
+  height: 100%;
+  margin-left: 10vw;
+  z-index: 100;
+  transition: all 0.2s ease;
+  transition-delay: 4s;
+}
+#reset-btn:active:focus ~ .timespan > .timebar {
+  width: 100%;
+  transition: all 0s linear;
+}
+.timespan {
+  z-index: 101;
+  position: absolute;
+  width: calc(100% - 10vw);
+  max-height: 20px;
+  height: 1.5vw;
+  margin-left: 10vw;
+  bottom: 0;
+  background: white;
+}
+.timespan > .timebar {
+  background: linear-gradient(to right, red 0vw, greenyellow 90vw);
+  width: 0%;
+  max-height: 20px;
+  height: 1.5vw;
+  transition: all 4s linear;
+}
+
+.game {
+  width: 100%;
+  background: #aaa;
+}
+
+
+
+/* GAME */
+#winscreen {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background: #00000055;
+  cursor: default;
+  text-align:center;
+  font-size: 5rem;
+  line-height: 100vh;
+  user-select:none;
+}
+#winscreen:target {
+  z-index: 200;
+}
+
+.hoversquare {
+  display: none;
+  position: fixed;
+  width: 5vw;
+  height: 5vw;
+  background-color: white;
+  z-index: 0;
+
+  transition: all 0.3s ease;
+}
+#reset-btn:not(:focus:active) ~ .game > .hoversquare {
+  display: block;
+}
+/* INITIAL POSITION */
+.hoversquare[--s1] {
+  top: calc(calc(50vh - 3.75vw) - 15vw);
+  left: 15vw;
+}
+.hoversquare[--s2] {
+  display: none;
+  top: calc(calc(50vh - 3.75vw) + 15vw);
+  left: 15vw;
+}
+.hoversquare[--s3] {
+  display: none;
+  bottom: calc(calc(50vh - 1.25vw) - 15vw);
+  left: 55vw;
+}
+.hoversquare[--s4] {
+  display: none;
+  top: calc(calc(50vh - 3.75vw) + 0vw);
+  right: 40vw;
+}
+.hoversquare[--s5] {
+  display: none;
+  bottom: calc(calc(50vh - 1.25vw) + 0vw);
+  left: 30vw;
+}
+.hoversquare[--s6] {
+  display: none;
+  top: calc(calc(50vh - 3.75vw) - 15vw);
+  left: 30vw;
+}
+.hoversquare[--s7] {
+  display: none;
+  top: calc(calc(50vh - 3.75vw) - 15vw);
+  left: 75vw;
+}
+.hoversquare[--s8] {
+  display: none;
+  top: calc(calc(50vh - 3.75vw) + 15vw);
+  left: 75vw;
+}
+.hoversquare[--s9] {
+  display: none;
+  background: greenyellow;
+  top: calc(calc(50vh - 3.75vw) + 15vw);
+  left: 90vw;
+}
+/* HOVERSQUARE MOVEMENT */
+.hoversquare[--s1]:hover {
+  height: calc(30vw + 1px);
+}
+.hoversquare[--s1]:hover > .hoversquare[--s2] {
+  display: block;
+}
+.hoversquare[--s2]:hover {
+  width: calc(40vw + 1px);
+}
+.hoversquare[--s2]:hover > .hoversquare[--s3] {
+  display: block;
+}
+.hoversquare[--s3]:hover {
+  height: calc(15vw + 1px);
+}
+.hoversquare[--s3]:hover > .hoversquare[--s4] {
+  display: block;
+}
+.hoversquare[--s4]:hover {
+  width: calc(25vw + 1px);
+}
+.hoversquare[--s4]:hover > .hoversquare[--s5] {
+  display: block;
+}
+.hoversquare[--s5]:hover {
+  height: calc(15vw + 1px);
+}
+.hoversquare[--s5]:hover > .hoversquare[--s6] {
+  display: block;
+}
+.hoversquare[--s6]:hover {
+  width: calc(45vw + 1px);
+}
+.hoversquare[--s6]:hover > .hoversquare[--s7] {
+  display: block;
+}
+.hoversquare[--s7]:hover {
+  height: calc(30vw + 1px);
+}
+.hoversquare[--s7]:hover > .hoversquare[--s8] {
+  display: block;
+}
+.hoversquare[--s8]:hover {
+  width: calc(15vw + 1px);
+}
+.hoversquare[--s8]:hover > .hoversquare[--s9] {
+  display: block;
+}
