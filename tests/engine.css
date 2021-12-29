@@ -1,0 +1,16 @@
+#pretext::before {
+    content: attr(pre) " - ";
+}
+
+#getlabel::before {
+    content: "element in another inheritance";
+}
+#getlabel:hover::before {
+    content: "hovering";
+}
+#getlabel:focus::before {
+    content: "focusing";
+}
+#getlabel:active::before {
+    content: "activated";
+}
