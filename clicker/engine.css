@@ -1,0 +1,167 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+div#main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+div#main > div {
+    flex-grow: 1;
+}
+div#cookie-area {
+    background: linear-gradient(to top, #35a4ff99, #80dafd44),
+                radial-gradient(#add8e6, #66a5d8);
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+div#upgrade-area {
+    border-left: 10px groove #583d20;
+    background:
+        radial-gradient(circle at top, #8a663e55, #24190c77),
+        radial-gradient(#584126, #3a2a17);
+    position: relative;
+    padding: 20px;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+div#cookie-area #cookie {
+    display: block;
+    position: relative;
+    background:
+        linear-gradient(120deg, #f8caa4cc, #8f663166),
+        linear-gradient( 80deg, #f8caa422, #8f663122),
+        linear-gradient(260deg, #f8caa422, #8f663122),
+        radial-gradient(#f8caa4 80px, #8f6631);
+    border: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    cursor: pointer;
+
+    transition: ease 200ms;
+}
+div#cookie-area #cookie:hover {
+    transform: scale(1.07);
+}
+div#cookie-area #cookie:active {
+    transform: scale(0.95);
+}
+div#cookie-area #cookie::before {
+    content: "+ COOKIE";
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    transform: translateY(50px) scale(1);
+    opacity: 0;
+}
+div#cookie-area #cookie:active::before {
+    animation: linear 150ms textFloat;
+}
+
+
+div#cookie-area button#cookie input#cookie-counter {
+    width: 200px;
+    height: 240px;
+    text-align: center;
+    margin-top: -55px;
+    margin-left: -5px;
+    padding-bottom: 200px;
+    border-radius: 0 0 100px 100px;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    caret-color: transparent;
+    user-select: none;
+}
+div#cookie-area button#cookie input#cookie-counter::selection {
+    color: white;
+    background: transparent;
+}
+div#cookie-area button#cookie input#cookie-counter::after {
+    content: "red";
+}
+div#cookie-area button#cookie input#cookie-counter::-webkit-inner-spin-button {
+    pointer-events: visible;
+    width: 200px;
+    height: 400px;
+    position: fixed;
+    top: -275px;
+    left: -245px;
+    padding-left: 250px;
+    padding-top: 300px;
+    color: white;
+    transform: rotate(90deg);
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+div#cookie-area #cookie-effect {
+    --glow: #ffffff22;
+    background:
+        radial-gradient(#ffffff77 100px, var(--glow) 150px, transparent 200px),
+        conic-gradient(
+        transparent   0deg, transparent  15deg,
+        var(--glow)  15deg, var(--glow)  35deg,
+        transparent  35deg, transparent  55deg,
+        var(--glow)  55deg, var(--glow)  80deg,
+        transparent  80deg, transparent  95deg,
+        var(--glow)  95deg, var(--glow) 120deg,
+        transparent 120deg, transparent 140deg,
+        var(--glow) 140deg, var(--glow) 160deg,
+        transparent 160deg, transparent 170deg,
+        var(--glow) 170deg, var(--glow) 190deg,
+        transparent 190deg, transparent 215deg,
+        var(--glow) 215deg, var(--glow) 250deg,
+        transparent 250deg, transparent 265deg,
+        var(--glow) 266deg, var(--glow) 285deg,
+        transparent 285deg, transparent 300deg,
+        var(--glow) 300deg, var(--glow) 325deg,
+        transparent 325deg, transparent 345deg,
+        var(--glow) 345deg, var(--glow) 360deg);
+    filter: blur(2px);
+    width: 5000px;
+    height: 5000px;
+    border-radius: 100%;
+    position: fixed;
+    left: -2500px;
+    margin-left: 50%;
+    top: calc(50% - 2500px);
+    animation: infinite 30s linear spin;
+}
+
+
+@keyframes spin {
+    from { transform: rotateZ(0deg); }
+    to { transform: rotateZ(360deg); }
+}
+
+@keyframes textFloat {
+    from {
+        transform: translateY(50px) scale(1);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(10px) scale(1.5);
+        opacity: 1;
+    }
+}
